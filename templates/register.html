@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Register</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI;
+}
+
+body{
+height:100vh;
+}
+
+/* MAIN CONTAINER (SAME AS LOGIN) */
+.main-container{
+display:flex;
+height:100%;
+}
+
+/* LEFT PANEL (MATCH LOGIN) */
+.left-panel{
+width:50%;
+position:relative;
+background:linear-gradient(135deg,#2F80ED,#56CCF2);
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:60px;
+text-align:center;
+overflow:hidden;
+}
+
+.left-panel h1{
+font-size:45px;
+margin-bottom:20px;
+}
+
+/* BACKGROUND SHAPES */
+.bg-shape{
+position:absolute;
+border-radius:50%;
+opacity:0.2;
+}
+
+.shape1{
+width:200px;
+height:200px;
+background:white;
+top:-50px;
+left:-50px;
+}
+
+.shape2{
+width:150px;
+height:150px;
+background:white;
+bottom:-40px;
+right:-40px;
+}
+
+.shape3{
+width:100px;
+height:100px;
+background:white;
+top:40%;
+right:10%;
+}
+
+/* RIGHT PANEL */
+.right-panel{
+width:50%;
+background:#F8FAFC;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.box{
+width:320px;
+}
+
+.box h2{
+margin-bottom:25px;
+color:#1E3A8A;
+text-align:center;
+}
+
+/* INPUTS */
+input, select{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border:none;
+border-bottom:2px solid #cbd5e1;
+background:transparent;
+font-size:14px;
+}
+
+/* BUTTON */
+button{
+width:100%;
+padding:12px;
+background:#2F80ED;
+border:none;
+color:white;
+border-radius:25px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:#1E3A8A;
+}
+
+/* LOGIN LINK */
+.login{
+margin-top:15px;
+font-size:14px;
+text-align:center;
+}
+
+.login a{
+color:#2F80ED;
+text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+<!-- LEFT SIDE (MATCHED WITH LOGIN) -->
+<div class="left-panel">
+
+<div class="bg-shape shape1"></div>
+<div class="bg-shape shape2"></div>
+<div class="bg-shape shape3"></div>
+
+<h1>Create Account</h1>
+
+<p>
+Register to use the AI Health Analyzer system for early
+disease prediction and health monitoring.
+</p>
+
+</div>
+
+<!-- RIGHT SIDE -->
+<div class="right-panel">
+
+<div class="box">
+
+<h2>Register Account</h2>
+
+<form action="/register_user" method="post">
+
+<input type="text" name="username" placeholder="Username">
+
+<input type="text" name="city" placeholder="City">
+
+<select name="profession" style="color:#555;">
+    <option value="" disabled selected hidden>Profession</option>
+    <option value="Student">Student</option>
+    <option value="Engineer">Engineer</option>
+    <option value="Teacher">Teacher</option>
+    <option value="Business">Business</option>
+    <option value="Self-Employed">Self-Employed</option>
+    <option value="Other">Other</option>
+</select>
+
+<input type="password" name="password" placeholder="Password">
+
+<small style="color:gray; display:block; margin:8px 0 18px; line-height:1.4;">
+Password must contain:
+<br>• At least 6 characters
+<br>• One uppercase letter (A-Z)
+<br>• One lowercase letter (a-z)
+<br>• One number (0-9)
+<br>• One special character (@, #, $, etc.)
+</small>
+
+<button>REGISTER</button>
+
+</form>
+
+<div class="login">
+
+Already have account?
+
+<a href="/">Login</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

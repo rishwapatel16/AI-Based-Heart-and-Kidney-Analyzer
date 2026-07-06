@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kidney Disease Analyzer</title>
+
+<style>
+
+body{
+background:#f4f6f9;
+font-family:Arial;
+margin:0;
+}
+
+.page{
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:20px;
+}
+
+.form-card{
+background:white;
+padding:30px 40px;
+border-radius:12px;
+width:600px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.form-card h2{
+text-align:center;
+margin-bottom:30px;
+color:#2563EB;
+}
+
+/* GRID */
+.form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px 25px;
+}
+
+/* FIELD */
+.form-group{
+display:flex;
+flex-direction:column;
+}
+
+/* LABEL */
+label{
+font-size:14px;
+font-weight:600;
+margin-bottom:6px;
+color:#333;
+}
+
+/* INPUT */
+input{
+padding:12px;
+border-radius:8px;
+border:1px solid #cbd5e1;
+font-size:14px;
+}
+
+/* FOCUS */
+input:focus{
+outline:none;
+border-color:#2563EB;
+box-shadow:0 0 5px rgba(37,99,235,0.3);
+}
+
+/* BUTTON */
+.submit-btn{
+margin-top:30px;
+width:100%;
+padding:14px;
+border:none;
+border-radius:30px;
+background:#2563EB;
+color:white;
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.submit-btn:hover{
+background:#1E40AF;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+<div class="form-card">
+
+<h2>🩺 Kidney Disease Prediction</h2>
+
+<form action="/predict_kidney" method="post">
+
+<div class="form-grid">
+
+<div class="form-group">
+<label>Blood Pressure (bp)</label>
+<input type="number" name="bp" placeholder="Example: 80" required>
+</div>
+
+<div class="form-group">
+<label>Blood Sugar (bgr)</label>
+<input type="number" name="sugar" placeholder="Example: 120" required>
+</div>
+
+<div class="form-group">
+<label>Serum Creatinine (sc)</label>
+<input type="number" step="0.1" name="creatinine" placeholder="Example: 1.2" required>
+</div>
+
+</div>
+
+<button class="submit-btn" type="submit">Analyze Kidney Risk</button>
+
+</form>
+
+</div>
+
+</div>
+
+</body>
+</html>

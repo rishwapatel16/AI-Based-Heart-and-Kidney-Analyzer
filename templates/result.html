@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Prediction Result</title>
+
+<style>
+body{
+font-family:Arial;
+background:linear-gradient(135deg,#e0ecff,#f4f8ff);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.box{
+background:white;
+padding:35px;
+border-radius:15px;
+width:420px;
+text-align:center;
+box-shadow:0 12px 35px rgba(37,99,235,0.2);
+border-top:6px solid #2563EB;
+}
+
+h2{
+color:#1E3A8A;
+}
+
+/* RESULT CARD */
+.result-card{
+margin-top:20px;
+padding:15px;
+border-radius:10px;
+background:#f1f5ff;
+border-left:5px solid #2563EB;
+}
+
+/* BADGES */
+.badge{
+padding:6px 14px;
+border-radius:20px;
+color:white;
+font-size:14px;
+}
+
+.low-badge{background:#10B981;}
+.medium-badge{background:#F59E0B;}
+.high-badge{background:#EF4444;}
+
+/* PROGRESS */
+.progress{
+width:100%;
+background:#dbeafe;
+height:20px;
+border-radius:10px;
+overflow:hidden;
+margin-top:10px;
+}
+
+.bar{
+height:100%;
+color:white;
+font-size:12px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.low{background:#10B981;}
+.medium{background:#F59E0B;}
+.high{background:#EF4444;}
+
+/* SUGGESTION */
+.suggestion{
+margin-top:12px;
+font-size:14px;
+color:#334155;
+background:#eef4ff;
+padding:10px;
+border-radius:8px;
+}
+
+/* FINAL RESULT */
+.final-box{
+margin-top:20px;
+padding:15px;
+border-radius:10px;
+color:white;
+font-weight:bold;
+}
+
+/* COLORS */
+.low-bg{background:#10B981;}
+.medium-bg{background:#F59E0B;}
+.high-bg{background:#EF4444;}
+
+/* BUTTON */
+.btn{
+margin-top:25px;
+display:inline-block;
+padding:12px 20px;
+background:#2563EB;
+color:white;
+border-radius:25px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#1E40AF;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>🧠 AI Health Analysis Report</h2>
+
+{% if heart %}
+<div class="result-card">
+<h3>❤️ Heart</h3>
+
+<span class="badge {% if heart.percent < 40 %}low-badge{% elif heart.percent < 70 %}medium-badge{% else %}high-badge{% endif %}">
+{{ heart.result }}
+</span>
+
+<div class="progress">
+<div class="bar {% if heart.percent < 40 %}low{% elif heart.percent < 70 %}medium{% else %}high{% endif %}" style="width:{{ heart.percent }}%">
+{{ heart.percent }}%
+</div>
+</div>
+
+<div class="suggestion">
+💡 {{ heart.suggestion }}
+</div>
+
+</div>
+{% endif %}
+
+
+{% if kidney %}
+<div class="result-card">
+<h3>🩺 Kidney</h3>
+
+<span class="badge {% if kidney.percent < 40 %}low-badge{% elif kidney.percent < 70 %}medium-badge{% else %}high-badge{% endif %}">
+{{ kidney.result }}
+</span>
+
+<div class="progress">
+<div class="bar {% if kidney.percent < 40 %}low{% elif kidney.percent < 70 %}medium{% else %}high{% endif %}" style="width:{{ kidney.percent }}%">
+{{ kidney.percent }}%
+</div>
+</div>
+
+<div class="suggestion">
+💡 {{ kidney.suggestion }}
+</div>
+
+</div>
+{% endif %}
+
+
+<!-- FINAL RESULT INSIDE BOX -->
+{% if final %}
+<div class="final-box
+    {% if final == 'Low Risk' %}low-bg
+    {% elif final == 'Moderate Risk' %}medium-bg
+    {% else %}high-bg
+    {% endif %}
+">
+    <h3>
+    {% if final == 'Low Risk' %}🟢
+    {% elif final == 'Moderate Risk' %}🟡
+    {% else %}🔴
+    {% endif %}
+    Final Health Status: {{ final }}
+    </h3>
+</div>
+{% endif %}
+
+
+<a href="/dashboard" class="btn">Go to Dashboard</a>
+
+</div>
+
+</body>
+</html>

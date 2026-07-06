@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Health Analyzer</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+<!-- LEFT SIDE -->
+
+<div class="left-panel">
+
+<div class="bg-shape shape1"></div>
+<div class="bg-shape shape2"></div>
+<div class="bg-shape shape3"></div>
+
+<h1>WELCOME BACK</h1>
+
+<p>
+AI Based Heart & Kidney Risk Prediction System designed
+to assist healthcare professionals in early disease detection
+and intelligent health monitoring.
+</p>
+
+</div>
+
+
+<!-- RIGHT SIDE -->
+
+<div class="right-panel">
+
+<div class="login-card">
+
+<h2>Login Account</h2>
+
+<form action="/login" method="post">
+
+<input type="text" name="username" placeholder="Username">
+
+<input type="password" name="password" placeholder="Password">
+
+<button type="submit">LOGIN</button>
+
+</form>
+
+<div class="register">
+
+Don't have an account?
+
+<a href="/register">Register</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

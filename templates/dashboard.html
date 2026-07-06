@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Health Dashboard</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f5f7fb;
+}
+
+/* HEADER */
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+    background:#2563EB;
+    color:white;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.profile-icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:white;
+    color:#2563EB;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+}
+
+/* MAIN */
+.container{
+    display:flex;
+    gap:30px;
+    padding:30px;
+}
+
+/* LEFT */
+.left-panel{
+    width:260px;
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    line-height:1.6;
+}
+
+.left-panel h3{
+    margin-top:15px;
+    color:#1E3A8A;
+}
+
+.left-panel hr{
+    margin:15px 0;
+    border:0;
+    border-top:1px solid #e2e8f0;
+}
+
+/* RIGHT */
+.right-panel{
+    flex:1;
+}
+
+/* WELCOME */
+.welcome{
+    font-size:24px;
+    margin-bottom:20px;
+    color:#1E3A8A;
+    font-weight:bold;
+}
+
+/*  UPDATED: GENERAL INFO (NOW SAME AS CARDS) */
+.info-box{
+    background: linear-gradient(135deg, #ffffff, #eef2ff);
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    margin-bottom:25px;
+    color:#374151;
+    line-height:1.6;
+    transition: all 0.3s ease;
+}
+
+/* ACTIONS */
+.actions-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap:25px;
+}
+
+.action-card{
+    background: linear-gradient(135deg, #ffffff, #eef2ff);
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    text-decoration:none;
+    color:#1E3A8A;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+/*  COMMON HOVER FOR ALL */
+.action-card:hover,
+.graph-box:hover,
+.info-box:hover{
+    transform:translateY(-8px) scale(1.02);
+    box-shadow:0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* GRAPH BOX */
+.graph-box{
+    background: linear-gradient(135deg, #ffffff, #eef2ff);
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    margin-top:25px;
+    margin-bottom:30px;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+    transition: all 0.3s ease;
+}
+
+/* LOGOUT */
+.logout{
+    text-align:center;
+    margin-top:30px;
+}
+
+.logout a{
+    background:#EF4444;
+    color:white;
+    padding:12px 25px;
+    border-radius:25px;
+    text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <h1>AI Health Analyzer</h1>
+
+    <div class="profile">
+        <div class="profile-icon">{{ session['user'][0]|upper }}</div>
+        <span>{{ session['user'] }}</span>
+    </div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+    <!-- LEFT -->
+    <div class="left-panel">
+        <h3>👤 User Info</h3>
+        <p><b>Name:</b> {{ session['user'] }}</p>
+        <p><b>Status:</b> Active</p>
+        <p><b>City:</b> {{ session['city'] }}</p>
+        <p><b>Profession:</b> {{ session['profession'] }}</p>
+
+        <hr>
+
+        <h3>💡 Tips</h3>
+        <ul style="padding-left:18px;">
+            <li>Maintain a consistent daily routine</li>
+            <li>Drink 2–3 liters of water</li>
+            <li>Do daily physical activity</li>
+            <li>Avoid excess sugar & salt</li>
+            <li>Regular health checkups</li>
+        </ul>
+
+        <hr>
+
+        <h3>🤖 AI Suggestion</h3>
+        <p>{{ suggestion }}</p>
+
+        <hr>
+
+        <h3>🌿 Health Awareness</h3>
+        <ul style="padding-left:18px;">
+            <li>Early detection saves lives</li>
+            <li>Monitor BP & sugar levels</li>
+            <li>Manage stress effectively</li>
+            <li>Sleep 7–8 hours daily</li>
+        </ul>
+
+        <hr>
+
+        <h3>💬 Motivation</h3>
+        <ul style="padding-left:18px;">
+            <li>Your health is your real wealth</li>
+            <li>Consistency beats intensity</li>
+            <li>Small steps matter daily</li>
+            <li>Prevention is better than cure</li>
+        </ul>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right-panel">
+
+        <div class="welcome">
+            Welcome, {{ session['user'] }} 👋
+        </div>
+
+        <!-- INFO -->
+        <div class="info-box">
+            This system helps you analyze health risks using AI-based predictions.
+            You can perform analysis and track your previous reports easily from here.
+        </div>
+
+        <!-- ACTION CARDS -->
+        <div class="actions-grid">
+
+            <a href="/heart_analyzer" class="action-card">
+                <h2>❤️ Heart Analyzer</h2>
+                <p>Analyze heart disease risk</p>
+            </a>
+
+            <a href="/kidney_analyzer" class="action-card">
+                <h2>🩺 Kidney Analyzer</h2>
+                <p>Analyze kidney disease risk</p>
+            </a>
+
+            <a href="/history" class="action-card">
+                <h2>📊 View History</h2>
+                <p>View your past reports</p>
+            </a>
+
+        </div>
+
+        <!-- GRAPH -->
+        <div class="graph-box">
+            <h3 style="text-align:center;">📍 City-wise Health Risk (%)</h3>
+            <canvas id="cityChart" style="height:250px;"></canvas>
+        </div>
+
+        <!-- MOTIVATION -->
+        <div class="info-box">
+            <h3 style="text-align:center;">💬 Daily Health Motivation</h3>
+            <p style="text-align:center;">
+                Small daily improvements lead to big long-term health benefits.
+                Stay consistent and monitor your health regularly.
+            </p>
+        </div>
+
+        <!-- LOGOUT -->
+        <div class="logout">
+            <a href="/logout">Logout</a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- SCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const cities = {{ cities | tojson }};
+const values = {{ values | tojson }};
+
+window.onload = function() {
+
+    const ctx2 = document.getElementById('cityChart').getContext('2d');
+
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: cities,
+            datasets: [{
+                label: 'Average Risk (%)',
+                data: values,
+                borderWidth: 2
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100
+                }
+            }
+        }
+    });
+
+};
+</script>
+
+</body>
+</html>

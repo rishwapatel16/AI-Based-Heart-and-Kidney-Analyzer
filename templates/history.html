@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Prediction History</title>
+
+<!--  Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+    font-family:Arial;
+    background:#f4f8ff;
+    padding:30px;
+}
+
+h2{
+    text-align:center;
+    color:#1E3A8A;
+}
+
+/* GRAPH */
+canvas{
+    display:block;
+    margin:30px auto;
+    max-width:800px;
+}
+
+/* TABLE */
+table{
+    width:90%;
+    margin:auto;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+th, td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+th{
+    background:#2563EB;
+    color:white;
+}
+
+tr:hover{
+    background:#f1f5ff;
+}
+
+/* BUTTON */
+.btn{
+    display:block;
+    width:200px;
+    margin:20px auto;
+    padding:10px;
+    text-align:center;
+    background:#2563EB;
+    color:white;
+    text-decoration:none;
+    border-radius:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>📊 Your Prediction History</h2>
+
+<!-- IF NO DATA -->
+{% if data|length == 0 %}
+<h3 style="text-align:center; color:#555;">No prediction history available</h3>
+{% else %}
+
+<form method="get" style="display:flex; justify-content:center; gap:15px; margin-bottom:25px; flex-wrap:wrap;">
+
+<input type="text" name="city" placeholder="Enter City"
+style="padding:10px; border-radius:8px; border:1px solid #ccc;">
+
+<select name="profession"
+style="padding:10px; border-radius:8px; border:1px solid #ccc;">
+    <option value="">All Profession</option>
+    <option value="Student">Student</option>
+    <option value="Engineer">Engineer</option>
+    <option value="Teacher">Teacher</option>
+    <option value="Business">Business</option>
+    <option value="Self-Employed">Self-Employed</option>
+    <option value="Other">Other</option>
+</select>
+
+<button type="submit"
+style="background:#2563EB; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">
+    Apply Filter
+</button>
+
+</form>
+
+<!--  TABLE -->
+<table>
+<tr>
+    <th>Username</th>
+    <th>Heart Result</th>
+    <th>Heart %</th>
+    <th>Kidney Result</th>
+    <th>Kidney %</th>
+    <th>Final Result</th>
+    <th>Date & Time</th>
+    <th>Download Report</th>
+</tr>
+
+{% for row in data %}
+<tr>
+    <td>{{ row[1] }}</td>
+    <td>{{ row[2] }}</td>
+    <td>{{ row[6] }}%</td>
+    <td>{{ row[3] }}</td>
+    <td>{{ row[7] }}%</td>
+    <td>{{ row[4] }}</td>
+    <td>{{ row[5] }}</td>
+    <td>
+        <a href="/download_report/{{ row[0] }}" style="color:blue;">
+            Download
+        </a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+<!--  GRAPH BELOW TABLE -->
+<h3 style="text-align:center;">Health Risk Trend (%)</h3>
+
+<canvas id="myChart"></canvas>
+
+<!--  GRAPH SCRIPT -->
+<script>
+const graphData = {{ graph_data | tojson }};
+
+// X-axis → Date
+const labels = graphData.map(item => item.date);
+
+// Y-axis → REAL %
+const values = graphData.map(item => item.value);
+
+const ctx = document.getElementById('myChart').getContext('2d');
+
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Health Risk (%)',
+            data: values,
+            borderWidth: 3,
+            tension: 0.3,
+            fill: false
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 100,
+                title: {
+                    display: true,
+                    text: 'Risk Percentage (%)'
+                }
+            }
+        }
+    }
+});
+</script>
+
+{% endif %}
+
+<a href="/dashboard" class="btn">Back to Dashboard</a>
+
+</body>
+</html>

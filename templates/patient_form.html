@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Heart Disease Analyzer</title>
+
+<style>
+
+body{
+background:#f4f6f9;
+font-family:Arial;
+margin:0;
+}
+
+.page{
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:20px;
+}
+
+.form-card{
+background:white;
+padding:30px 40px;
+border-radius:12px;
+width:800px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.form-card h2{
+text-align:center;
+margin-bottom:30px;
+color:#2563EB;
+}
+
+/* GRID */
+.form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px 25px;
+}
+
+/* FIELD */
+.form-group{
+display:flex;
+flex-direction:column;
+}
+
+/* LABEL */
+label{
+font-size:14px;
+font-weight:600;
+margin-bottom:6px;
+color:#333;
+}
+
+/* INPUT */
+input, select{
+padding:12px;
+border-radius:8px;
+border:1px solid #cbd5e1;
+font-size:14px;
+}
+
+/* PLACEHOLDER STYLE */
+input::placeholder{
+color:#94a3b8;
+}
+
+/* FOCUS */
+input:focus, select:focus{
+outline:none;
+border-color:#2563EB;
+box-shadow:0 0 5px rgba(37,99,235,0.3);
+}
+
+/* BUTTON */
+.submit-btn{
+margin-top:30px;
+width:100%;
+padding:14px;
+border:none;
+border-radius:30px;
+background:#2563EB;
+color:white;
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.submit-btn:hover{
+background:#1E40AF;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+<div class="form-card">
+
+<h2>❤️ Heart Disease Prediction</h2>
+
+<form action="/predict_heart" method="post">
+
+<div class="form-grid">
+
+<div class="form-group">
+<label>Age</label>
+<input type="number" name="age" placeholder="Example: 45" required>
+</div>
+
+<div class="form-group">
+<label>Gender</label>
+<select name="sex" required>
+<option value="" disabled selected>Select Gender</option>
+<option value="1">Male</option>
+<option value="0">Female</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Chest Pain Type</label>
+<select name="cp" required>
+<option value="" disabled selected>Select Type</option>
+<option value="0">Typical Angina</option>
+<option value="1">Atypical Angina</option>
+<option value="2">Non-anginal Pain</option>
+<option value="3">Asymptomatic</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Resting Blood Pressure</label>
+<input type="number" name="trestbps" placeholder="Example: 120" required>
+</div>
+
+<div class="form-group">
+<label>Cholesterol</label>
+<input type="number" name="chol" placeholder="Example: 200" required>
+</div>
+
+<div class="form-group">
+<label>Fasting Blood Sugar</label>
+<select name="fbs" required>
+<option value="" disabled selected>Select Option</option>
+<option value="1">True (>120)</option>
+<option value="0">False</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Rest ECG</label>
+<select name="restecg" required>
+<option value="" disabled selected>Select ECG Type</option>
+<option value="0">Normal</option>
+<option value="1">Abnormal</option>
+<option value="2">Hypertrophy</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Max Heart Rate</label>
+<input type="number" name="thalach" placeholder="Example: 150" required>
+</div>
+
+<div class="form-group">
+<label>Exercise Induced Angina</label>
+<select name="exang" required>
+<option value="" disabled selected>Select</option>
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Old Peak</label>
+<input type="number" step="0.1" name="oldpeak" placeholder="Example: 1.5" required>
+</div>
+
+<div class="form-group">
+<label>Slope</label>
+<input type="number" name="slope" placeholder="Example: 2" required>
+</div>
+
+<div class="form-group">
+<label>Number of Vessels</label>
+<input type="number" name="ca" placeholder="0 - 3" required>
+</div>
+
+<div class="form-group">
+<label>Thal</label>
+<input type="number" name="thal" placeholder="1 - 3" required>
+</div>
+
+</div>
+
+<button class="submit-btn" type="submit">Analyze Heart Risk</button>
+
+</form>
+
+</div>
+
+</div>
+
+</body>
+</html>
