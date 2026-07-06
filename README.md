@@ -314,9 +314,11 @@ http://127.0.0.1:5000
 
 **Rishwa Patel**
 
-Bachelor of Engineering (Computer Engineering)
+Bachelor of Engineering (Information Technology)
 
-Vishwakarma Government Engineering College (VGEC)
+Vishwakarma Government Engineering College (VGEC), Chandkheda
+
+Ahmedabad, Gujarat, India
 
 ---
 
