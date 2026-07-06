@@ -1,14 +1,14 @@
 # 🩺 AI-Based Heart and Kidney Analyzer
 
-An AI-powered healthcare web application that predicts the risk of **Heart Disease** and **Kidney Disease** using Machine Learning. The system analyzes medical parameters, calculates a risk percentage, classifies the risk level, and provides personalized health suggestions.
+An AI-powered healthcare web application that predicts the risk of **Heart Disease** and **Kidney Disease** using Machine Learning. The system analyzes medical parameters, calculates a percentage-based risk score, classifies the risk level, and provides personalized health recommendations to promote early disease awareness.
 
 ---
 
-## 📌 Project Overview
+# 📌 Project Overview
 
-The AI-Based Heart and Kidney Analyzer is a Flask-based web application developed to assist in the early detection of heart and kidney diseases using Machine Learning.
+The **AI-Based Heart and Kidney Analyzer** is a Flask-based healthcare application developed to assist users in the early prediction of heart and kidney diseases using Machine Learning.
 
-The application analyzes important medical parameters such as:
+The system analyzes important medical parameters such as:
 
 - Age
 - Blood Pressure
@@ -21,68 +21,113 @@ The application analyzes important medical parameters such as:
 - Hemoglobin
 - Other clinical parameters
 
-Based on the user's input, the system predicts disease risk using the **Random Forest Algorithm** and displays:
+Using a **Random Forest Machine Learning model**, the application predicts disease risk and displays:
 
-- Risk Percentage
-- Risk Level (Low, Moderate, High)
-- Personalized Health Suggestions
+- 📊 Risk Percentage
+- 🟢 Low / 🟡 Moderate / 🔴 High Risk Level
+- 💡 Personalized Health Suggestions
 
-The application also stores prediction history, generates graphical reports, and allows users to download PDF reports.
+The system also stores prediction history, generates downloadable PDF health reports, and enables users to monitor their health records efficiently.
 
 ---
 
-## 🎯 Objectives
+# 🎯 Objectives
 
 - Predict Heart Disease Risk
 - Predict Kidney Disease Risk
-- Generate Percentage-Based Risk Prediction
-- Provide Health Recommendations
-- Maintain Prediction History
-- Visualize Health Trends
-- Generate Downloadable PDF Reports
-- Increase Health Awareness using AI
+- Generate Percentage-Based Risk Predictions
+- Provide Personalized Health Suggestions
+- Maintain User Prediction History
+- Generate Downloadable Health Reports
+- Increase Health Awareness through Artificial Intelligence
 
 ---
 
-## ✨ Features
+# ✨ Features
 
-- User Registration & Login
-- Heart Disease Prediction
-- Kidney Disease Prediction
-- Percentage-Based Risk Analysis
-- Risk Categorization (Low, Moderate, High)
-- Personalized Health Suggestions
-- Prediction History
-- Graphical Analysis
-- Download PDF Reports
-- SQLite Database Integration
-- Responsive User Interface
+- 👤 User Registration
+- 🔐 Secure User Login
+- 🏠 Interactive Dashboard
+- ❤️ Heart Disease Analyzer
+- 🩺 Kidney Disease Analyzer
+- 📈 Percentage-Based Risk Prediction
+- 🚦 Risk Classification (Low, Moderate, High)
+- 💡 Personalized Health Suggestions
+- 📜 Prediction History
+- 📄 Downloadable PDF Health Report
+- 🗄 SQLite Database Integration
+- 🤖 Machine Learning-Based Prediction
+- 🎨 Responsive and User-Friendly Interface
 
 ---
 
-## 🛠️ Technologies Used
+# 🚀 Project Modules
 
-### Frontend
+## 👤 User Authentication
+
+- User Registration
+- Secure Login
+- Session Management
+
+## 🏠 Dashboard
+
+- Central navigation page
+- Access to Heart Analyzer
+- Access to Kidney Analyzer
+- View Prediction History
+- Generate Health Reports
+
+## ❤️ Heart Disease Analyzer
+
+- Medical Parameter Input Form
+- Disease Risk Prediction
+- Percentage-Based Analysis
+- Health Recommendations
+
+## 🩺 Kidney Disease Analyzer
+
+- Medical Parameter Input Form
+- Disease Risk Prediction
+- Percentage-Based Analysis
+- Health Recommendations
+
+## 📜 Prediction History
+
+- Stores previous predictions
+- Displays prediction records
+- Helps users monitor health over time
+
+## 📄 Health Report
+
+- Downloadable PDF Report
+- Contains prediction details
+- Includes risk level and health suggestions
+
+---
+
+# 🛠 Technologies Used
+
+## Frontend
 
 - HTML
 - CSS
 - JavaScript
 
-### Backend
+## Backend
 
 - Python
 - Flask
 
-### Machine Learning
+## Machine Learning
 
 - Scikit-learn
-- Random Forest Algorithm
+- Random Forest Classifier
 
-### Database
+## Database
 
 - SQLite
 
-### Development Tools
+## Development Tools
 
 - PyCharm
 - Git
@@ -90,33 +135,35 @@ The application also stores prediction history, generates graphical reports, and
 
 ---
 
-## 🧠 Machine Learning Model
+# 🧠 Machine Learning Model
 
-Algorithm Used:
+The application uses the **Random Forest Classifier**, which is trained on healthcare datasets to predict disease risk.
 
-- Random Forest Classifier
+The model:
 
-The model predicts the probability of disease based on medical parameters and converts the output into:
-
-- Low Risk
-- Moderate Risk
-- High Risk
-
-along with a percentage score.
+- Accepts medical parameters
+- Calculates disease probability
+- Converts probability into percentage
+- Categorizes prediction into:
+  - 🟢 Low Risk
+  - 🟡 Moderate Risk
+  - 🔴 High Risk
+- Generates personalized health suggestions
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
 ```text
 AI-Based-Heart-and-Kidney-Analyzer/
 │
 ├── static/
 ├── templates/
+├── screenshots/
 ├── models/
-├── database/
 ├── reports/
 ├── app.py
+├── database.db
 ├── requirements.txt
 ├── README.md
 └── .gitignore
@@ -124,104 +171,146 @@ AI-Based-Heart-and-Kidney-Analyzer/
 
 ---
 
-## 🚀 Installation
+# 🚀 Installation
 
-### Clone the Repository
+## Clone the Repository
 
 ```bash
 git clone https://github.com/rishwapatel16/AI-Based-Heart-and-Kidney-Analyzer.git
 ```
 
-### Go to Project Folder
+## Navigate to the Project Folder
 
 ```bash
 cd AI-Based-Heart-and-Kidney-Analyzer
 ```
 
-### Install Required Packages
+## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Run the Project
+## Run the Application
 
 ```bash
 python app.py
 ```
 
----
+Open your browser and visit:
 
-## 📊 Prediction Workflow
-
-1. User enters medical information.
-2. Flask receives the input.
-3. The Random Forest model processes the data.
-4. Disease probability is calculated.
-5. Risk percentage is generated.
-6. Risk level is displayed.
-7. Health suggestions are provided.
-8. Prediction is stored in SQLite.
-9. User can view graphs and download a PDF report.
+```
+http://127.0.0.1:5000
+```
 
 ---
 
-## 📷 Screenshots
+# 📊 System Workflow
 
-### Home Page
-
-(Add Screenshot Here)
-
-### Heart Prediction
-
-(Add Screenshot Here)
-
-### Kidney Prediction
-
-(Add Screenshot Here)
-
-### Dashboard
-
-(Add Screenshot Here)
-
-### Prediction History
-
-(Add Screenshot Here)
-
-### Graph Analysis
-
-(Add Screenshot Here)
-
-### PDF Report
-
-(Add Screenshot Here)
+1. User registers a new account.
+2. User logs into the application.
+3. Dashboard is displayed.
+4. User selects either:
+   - Heart Disease Analyzer
+   - Kidney Disease Analyzer
+5. User enters medical parameters.
+6. Flask sends the data to the trained Random Forest model.
+7. The model predicts disease probability.
+8. Risk percentage is calculated.
+9. Risk level is classified as:
+   - 🟢 Low
+   - 🟡 Moderate
+   - 🔴 High
+10. Personalized health suggestions are displayed.
+11. Prediction details are stored in SQLite.
+12. User can view Prediction History.
+13. User can generate and download a PDF Health Report.
 
 ---
 
-## 📈 Future Enhancements
+# 📷 Application Screenshots
 
-- Support additional diseases
-- Doctor Consultation Module
-- Real-Time Health Monitoring
-- Cloud Database Integration
-- Mobile Application
-- Email Notifications
-- AI Chatbot for Health Assistance
-- Integration with Wearable Devices
+## 👤 Registration Page
+
+![Registration](screenshots/registration.png)
 
 ---
 
-## ⚠️ Limitations
+## 🔐 Login Page
 
-- Prediction depends on the quality of input data.
+![Login](screenshots/login.png)
+
+---
+
+## 🏠 Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+---
+
+## ❤️ Heart Analyzer Form
+
+![Heart Analyzer](screenshots/heart_form.png)
+
+---
+
+## 📊 Heart Disease Risk Analysis
+
+![Heart Result](screenshots/heart_result.png)
+
+---
+
+## 🩺 Kidney Analyzer Form
+
+![Kidney Analyzer](screenshots/kidney_form.png)
+
+---
+
+## 📊 Kidney Disease Risk Analysis
+
+![Kidney Result](screenshots/kidney_result.png)
+
+---
+
+## 📜 Prediction History
+
+![History](screenshots/history.png)
+
+---
+
+## 📄 Health Report
+
+![Health Report](screenshots/health_report.png)
+
+---
+
+# ⚠️ Limitations
+
+- Prediction depends on the quality of the input data.
+- Uses only selected medical parameters.
 - Limited to Heart and Kidney disease prediction.
-- Cannot replace professional medical diagnosis.
-- Uses selected medical parameters only.
+- Does not replace professional medical diagnosis.
 - No real-time doctor consultation.
+- Accuracy depends on the trained dataset.
 
 ---
 
-## 👨‍💻 Developer
+# 🚀 Future Enhancements
+
+- Support prediction for additional diseases.
+- AI-powered health chatbot.
+- Doctor consultation module.
+- Email and SMS health alerts.
+- Mobile application.
+- Cloud database integration.
+- Integration with wearable health devices.
+- Multi-language support.
+- Real-time health monitoring.
+- Appointment booking system.
+
+---
+
+# 👨‍💻 Developer
 
 **Rishwa Patel**
 
@@ -231,6 +320,6 @@ Vishwakarma Government Engineering College (VGEC)
 
 ---
 
-## 📄 License
+# 📄 License
 
-This project is developed for educational and internship purposes.
+This project is developed for **educational, academic, and internship purposes**.
