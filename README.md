@@ -309,6 +309,7 @@ http://127.0.0.1:5000
 - Appointment booking system.
 
 ---
+
 # 🛠️ Tech Stack 
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
@@ -320,6 +321,8 @@ http://127.0.0.1:5000
 ![JavaScript](https://img.shields.io/badge/JavaScript-Frontend-yellow?logo=javascript)
 ![Git](https://img.shields.io/badge/Git-Version%20Control-red?logo=git)
 ![GitHub](https://img.shields.io/badge/GitHub-Repository-black?logo=github)
+
+---
 
 # 👨‍💻 Developer
 
